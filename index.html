@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tài Liệu Học Tập Lớp 9 - Ôn Thi Vào 10</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* ================= BIẾN CSS (MÀU SẮC) ================= */
+        :root {
+            --bg-body: #f0f2f5;
+            --bg-card: #ffffff;
+            --text-main: #1e293b;
+            --text-sub: #64748b;
+            --primary: #3b82f6;
+            --header-bg: rgba(255, 255, 255, 0.8);
+            --border-color: #e2e8f0;
+            --grid-color: rgba(59, 130, 246, 0.05);
+            
+            /* Subject Colors */
+            --math-color: #2563eb;
+            --lit-color: #059669;
+            --eng-color: #ea580c;
+        }
+
+        [data-theme="dark"] {
+            --bg-body: #0f172a;
+            --bg-card: #1e293b;
+            --text-main: #f1f5f9;
+            --text-sub: #94a3b8;
+            --header-bg: rgba(15, 23, 42, 0.9);
+            --border-color: #334155;
+            --grid-color: rgba(255, 255, 255, 0.03);
+        }
+
+        /* ================= RESET & CƠ BẢN ================= */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: 'Be Vietnam Pro', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            min-height: 100vh;
+            overflow-x: hidden;
+
+            background-image: 
+                linear-gradient(var(--grid-color) 1px, transparent 1px),
+                linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+            background-size: 30px 30px;
+        }
+
+        /* ================= DECORATIONS ================= */
+        .decor {
+            position: fixed;
+            pointer-events: none;
+            opacity: 0.15;
+            z-index: 0;
+            filter: grayscale(0.5);
+        }
+
+        [data-theme="dark"] .decor {
+            opacity: 0.1;
+            filter: invert(1);
+        }
+
+        .decor-1 { top: 10%; left: 5%; transform: rotate(-15deg); font-size: 3rem; }
+        .decor-2 { bottom: 15%; right: 8%; transform: rotate(20deg); font-size: 4rem; }
+        .decor-3 { top: 20%; right: 5%; transform: rotate(10deg); font-size: 2.5rem; }
+        .decor-4 { bottom: 10%; left: 10%; transform: rotate(-25deg); font-size: 3.5rem; }
+
+        /* ================= HEADER ================= */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 1rem 5%;
+            background: var(--header-bg);
+            backdrop-filter: blur(12px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.2rem;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* ====== NHÓM NÚT HEADER ====== */
+        .header-buttons {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .btn-theme {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            padding: 8px 16px;
+            border-radius: 50px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+            text-decoration: none;
+        }
+
+        .btn-theme:hover {
+            transform: scale(1.05);
+            background: var(--primary);
+            color: white;
+        }
+
+        /* ====== FEEDBACK BUTTON ====== */
+        .feedback-btn:hover {
+            background: #8b5cf6;
+            color: white;
+        }
+
+        /* ================= MAIN CONTENT ================= */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 5%;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            font-weight: 800;
+            margin-bottom: 15px;
+            background: linear-gradient(90deg, var(--math-color), var(--eng-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            color: var(--text-sub);
+            font-size: 1.1rem;
+        }
+
+        /* ================= SUBJECT CARDS ================= */
+        .subjects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .subject-card {
+            background: var(--bg-card);
+            border-radius: 24px;
+            padding: 40px 30px;
+            text-decoration: none;
+            color: inherit;
+            border: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.05);
+        }
+
+        .subject-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+        }
+
+        .subject-card.math::before { background: var(--math-color); }
+        .subject-card.literature::before { background: var(--lit-color); }
+        .subject-card.english::before { background: var(--eng-color); }
+
+        .subject-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 20px 40px -15px rgba(0,0,0,0.15);
+        }
+
+        .icon-circle {
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            margin-bottom: 25px;
+            background: var(--bg-body);
+        }
+
+        .subject-card h2 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .subject-card p {
+            color: var(--text-sub);
+            font-size: 0.95rem;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        .btn-enter {
+            padding: 10px 25px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: white;
+        }
+
+        .math .btn-enter { background: var(--math-color); }
+        .literature .btn-enter { background: var(--lit-color); }
+        .english .btn-enter { background: var(--eng-color); }
+
+        /* ================= FOOTER ================= */
+        footer {
+            text-align: center;
+            padding: 40px;
+            color: var(--text-sub);
+            font-size: 0.9rem;
+        }
+
+        /* ================= ANIMATION ================= */
+        @keyframes floating {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(5deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+
+        .decor {
+            animation: floating 6s ease-in-out infinite;
+        }
+
+        .decor-2 { animation-delay: 1s; }
+        .decor-3 { animation-delay: 2s; }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="decor decor-1">📚</div>
+    <div class="decor decor-2">📐</div>
+    <div class="decor decor-3">✏️</div>
+    <div class="decor decor-4">🎨</div>
+
+    <header>
+
+        <div class="logo">
+            <span>🎓 Tài Liệu Lớp 9 - Ôn Thi Vào 10</span>
+        </div>
+
+        <!-- NHÓM NÚT BÊN PHẢI -->
+        <div class="header-buttons">
+
+            <!-- FEEDBACK -->
+            <a href="https://forms.gle/28cG9E5oVxNnJia16"
+               target="_blank"
+               class="btn-theme feedback-btn">
+                <span>💬</span>
+                <span>Feedback</span>
+            </a>
+
+            <!-- THEME -->
+            <button class="btn-theme" id="theme-toggle">
+                <span id="theme-icon">🌙</span>
+                <span id="theme-text">Chế độ tối</span>
+            </button>
+
+        </div>
+
+    </header>
+
+    <div class="container">
+
+        <section class="hero">
+            <h1>Tài Liệu Học Tập Lớp 9</h1>
+            <p>Tổng Hợp Tài Liệu Tại Nhiều Nguồn - Bí Kíp Đạt Điểm Cao 🎯</p>
+        </section>
+
+        <main class="subjects-grid">
+
+            <a href="https://hwlonggg.github.io/Maths-Learning-Website/" class="subject-card math">
+                <div class="icon-circle">📐</div>
+                <h2>Môn Toán</h2>
+                <p>Tổng hợp kiến thức Đại số, Hình học và các dạng đề thi lớp 9 - thi thử tuyển sinh.</p>
+                <div class="btn-enter">Vào học ngay</div>
+            </a>
+
+            <a href="https://hwlonggg.github.io/Literature-Learning-Webiste/" class="subject-card literature">
+                <div class="icon-circle">📖</div>
+                <h2>Ngữ Văn</h2>
+                <p>Phân tích tác phẩm, sơ đồ tư duy văn học và các bài văn mẫu chọn lọc lớp 9.</p>
+                <div class="btn-enter">Vào học ngay</div>
+            </a>
+
+            <a href="https://hwlonggg.github.io/English-Learning-Website/" class="subject-card english">
+                <div class="icon-circle">🌍</div>
+                <h2>Tiếng Anh</h2>
+                <p>Hệ thống ngữ pháp, từ vựng theo chương trình và các đề thi thử từ nhiều tỉnh thành.</p>
+                <div class="btn-enter">Vào học ngay</div>
+            </a>
+
+        </main>
+    </div>
+
+    <footer>
+        <p>&copy; Website học tập dành cho học sinh lớp 9 ✍️ - Created by Nguyễn Hoàng Long 🔥</p>
+    </footer>
+
+    <script>
+
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        const themeText = document.getElementById('theme-text');
+        const html = document.documentElement;
+
+        // Kiểm tra theme cũ
+        const savedTheme = localStorage.getItem('theme');
+
+        if (savedTheme) {
+            html.setAttribute('data-theme', savedTheme);
+            updateToggleButton(savedTheme);
+        }
+
+        // Đổi theme
+        themeToggle.addEventListener('click', () => {
+
+            let currentTheme = html.getAttribute('data-theme');
+
+            let newTheme = currentTheme === 'dark'
+                ? 'light'
+                : 'dark';
+
+            html.setAttribute('data-theme', newTheme);
+
+            localStorage.setItem('theme', newTheme);
+
+            updateToggleButton(newTheme);
+
+        });
+
+        // Cập nhật nút
+        function updateToggleButton(theme) {
+
+            if (theme === 'dark') {
+
+                themeIcon.innerText = '☀️';
+                themeText.innerText = 'Chế độ sáng';
+
+            } else {
+
+                themeIcon.innerText = '🌙';
+                themeText.innerText = 'Chế độ tối';
+
+            }
+
+        }
+
+    </script>
+
+</body>
+</html>
