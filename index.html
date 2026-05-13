@@ -100,7 +100,6 @@
             gap: 10px;
         }
 
-        /* ====== NHÓM NÚT HEADER ====== */
         .header-buttons {
             display: flex;
             align-items: center;
@@ -128,7 +127,6 @@
             color: white;
         }
 
-        /* ====== FEEDBACK BUTTON ====== */
         .feedback-btn:hover {
             background: #8b5cf6;
             color: white;
@@ -145,7 +143,7 @@
 
         .hero {
             text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 25px; /* GIẢM từ 60px xuống 25px để gần card hơn */
         }
 
         .hero h1 {
@@ -162,22 +160,24 @@
             font-size: 1.1rem;
         }
 
-        /* --- STYLE CHO DÒNG CHỮ MỚI THÊM --- */
+        /* --- STYLE CHO Ô NỘI DUNG MỚI --- */
         .hero .hero-tagline {
             display: inline-block;
-            margin-top: 15px;
-            padding: 6px 20px;
+            margin-top: 35px; /* TĂNG từ 15px lên 35px để đẩy sát xuống card */
+            padding: 8px 25px;
             border-radius: 50px;
             font-weight: 700;
-            font-size: 1.15rem;
-            color: var(--primary);
-            background: rgba(59, 130, 246, 0.08); /* Nền xanh dương nhạt mờ */
-            border: 1px solid rgba(59, 130, 246, 0.2);
+            font-size: 1.1rem;
+            color: #ffffff;
+            background: rgba(59, 130, 246, 0.2); /* Nền mờ kiểu Glassmorphism */
+            border: 1.5px solid rgba(59, 130, 246, 0.4);
+            backdrop-filter: blur(4px);
         }
 
         [data-theme="dark"] .hero .hero-tagline {
             background: rgba(59, 130, 246, 0.15);
-            color: #60a5fa; /* Màu xanh sáng hơn cho nền tối */
+            border-color: rgba(59, 130, 246, 0.3);
+            color: #93c5fd;
         }
 
         /* ================= SUBJECT CARDS ================= */
@@ -268,7 +268,6 @@
             font-size: 0.9rem;
         }
 
-        /* ================= ANIMATION ================= */
         @keyframes floating {
             0% { transform: translateY(0px) rotate(0deg); }
             50% { transform: translateY(-10px) rotate(5deg); }
@@ -293,31 +292,22 @@
     <div class="decor decor-4">🎨</div>
 
     <header>
-
         <div class="logo">
             <span>🎓 Tài Liệu Lớp 9 - Ôn Thi Vào 10</span>
         </div>
-
         <div class="header-buttons">
-
-            <a href="https://forms.gle/28cG9E5oVxNnJia16"
-               target="_blank"
-               class="btn-theme feedback-btn">
+            <a href="https://forms.gle/28cG9E5oVxNnJia16" target="_blank" class="btn-theme feedback-btn">
                 <span>💬</span>
                 <span>Feedback</span>
             </a>
-
             <button class="btn-theme" id="theme-toggle">
                 <span id="theme-icon">🌙</span>
                 <span id="theme-text">Chế độ tối</span>
             </button>
-
         </div>
-
     </header>
 
     <div class="container">
-
         <section class="hero">
             <h1>Tài Liệu Học Tập Lớp 9</h1>
             <p>Tổng Hợp Tài Liệu Tại Nhiều Nguồn - Bí Kíp Đạt Điểm Cao 🎯</p>
@@ -325,7 +315,6 @@
         </section>
 
         <main class="subjects-grid">
-
             <a href="https://hwlonggg.github.io/Maths-Learning-Website/" class="subject-card math">
                 <div class="icon-circle">📐</div>
                 <h2>Toán</h2>
@@ -346,63 +335,42 @@
                 <p>Hệ thống ngữ pháp, từ vựng theo chương trình và các đề thi thử từ nhiều tỉnh thành.</p>
                 <div class="btn-enter">Vào học ngay</div>
             </a>
-
         </main>
     </div>
 
     <footer>
-        <p>&copy; Website học tập dành cho học sinh lớp 9 ✍️ - Created by Nguyễn Hoàng Long 🔥</p>
+        <p>Website học tập dành cho học sinh lớp 9 ✍️ - Created by Nguyễn Hoàng Long 🔥</p>
     </footer>
 
     <script>
-
         const themeToggle = document.getElementById('theme-toggle');
         const themeIcon = document.getElementById('theme-icon');
         const themeText = document.getElementById('theme-text');
         const html = document.documentElement;
 
-        // Kiểm tra theme cũ
         const savedTheme = localStorage.getItem('theme');
-
         if (savedTheme) {
             html.setAttribute('data-theme', savedTheme);
             updateToggleButton(savedTheme);
         }
 
-        // Đổi theme
         themeToggle.addEventListener('click', () => {
-
             let currentTheme = html.getAttribute('data-theme');
-
-            let newTheme = currentTheme === 'dark'
-                ? 'light'
-                : 'dark';
-
+            let newTheme = currentTheme === 'dark' ? 'light' : 'dark';
             html.setAttribute('data-theme', newTheme);
-
             localStorage.setItem('theme', newTheme);
-
             updateToggleButton(newTheme);
-
         });
 
-        // Cập nhật nút
         function updateToggleButton(theme) {
-
             if (theme === 'dark') {
-
                 themeIcon.innerText = '☀️';
                 themeText.innerText = 'Chế độ sáng';
-
             } else {
-
                 themeIcon.innerText = '🌙';
                 themeText.innerText = 'Chế độ tối';
-
             }
-
         }
-
     </script>
 
 </body>
