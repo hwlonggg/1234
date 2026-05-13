@@ -162,6 +162,24 @@
             font-size: 1.1rem;
         }
 
+        /* --- STYLE CHO DÒNG CHỮ MỚI THÊM --- */
+        .hero .hero-tagline {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 6px 20px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.15rem;
+            color: var(--primary);
+            background: rgba(59, 130, 246, 0.08); /* Nền xanh dương nhạt mờ */
+            border: 1px solid rgba(59, 130, 246, 0.2);
+        }
+
+        [data-theme="dark"] .hero .hero-tagline {
+            background: rgba(59, 130, 246, 0.15);
+            color: #60a5fa; /* Màu xanh sáng hơn cho nền tối */
+        }
+
         /* ================= SUBJECT CARDS ================= */
         .subjects-grid {
             display: grid;
@@ -280,10 +298,8 @@
             <span>🎓 Tài Liệu Lớp 9 - Ôn Thi Vào 10</span>
         </div>
 
-        <!-- NHÓM NÚT BÊN PHẢI -->
         <div class="header-buttons">
 
-            <!-- FEEDBACK -->
             <a href="https://forms.gle/28cG9E5oVxNnJia16"
                target="_blank"
                class="btn-theme feedback-btn">
@@ -291,7 +307,6 @@
                 <span>Feedback</span>
             </a>
 
-            <!-- THEME -->
             <button class="btn-theme" id="theme-toggle">
                 <span id="theme-icon">🌙</span>
                 <span id="theme-text">Chế độ tối</span>
@@ -306,13 +321,14 @@
         <section class="hero">
             <h1>Tài Liệu Học Tập Lớp 9</h1>
             <p>Tổng Hợp Tài Liệu Tại Nhiều Nguồn - Bí Kíp Đạt Điểm Cao 🎯</p>
+            <div class="hero-tagline">3 Môn Chính Lớp 9 + Ôn Thi Tuyển Sinh</div>
         </section>
 
         <main class="subjects-grid">
 
             <a href="https://hwlonggg.github.io/Maths-Learning-Website/" class="subject-card math">
                 <div class="icon-circle">📐</div>
-                <h2>Môn Toán</h2>
+                <h2>Toán</h2>
                 <p>Tổng hợp kiến thức Đại số, Hình học và các dạng đề thi lớp 9 - thi thử tuyển sinh.</p>
                 <div class="btn-enter">Vào học ngay</div>
             </a>
