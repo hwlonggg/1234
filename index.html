@@ -146,7 +146,7 @@
 
         .hero {
             text-align: center;
-            margin-bottom: 25px; /* GIẢM từ 60px xuống 25px để gần card hơn */
+            margin-bottom: 25px;
         }
 
         .hero h1 {
@@ -163,7 +163,7 @@
             font-size: 1.1rem;
         }
 
-        /* --- Generic TAGLINE style for all section headers --- */
+        /* --- CẬP NHẬT: Style cho các thẻ Tagline (Ô thông tin) --- */
         .tagline {
             display: inline-block;
             padding: 8px 25px;
@@ -171,50 +171,52 @@
             font-weight: 700;
             font-size: 1.1rem;
             color: #ffffff;
-            background: rgba(59, 130, 246, 0.2); /* Nền mờ kiểu Glassmorphism */
-            border: 1.5px solid rgba(59, 130, 246, 0.4);
+            /* Thay đổi: Màu nền đậm hơn để dễ đọc chữ trắng trong Light Mode */
+            background: #2563eb; 
+            border: 1.5px solid #1d4ed8;
             backdrop-filter: blur(4px);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
         }
 
         [data-theme="dark"] .tagline {
+            /* Giữ nguyên phong cách nhẹ nhàng cho Dark Mode */
             background: rgba(59, 130, 246, 0.15);
             border-color: rgba(59, 130, 246, 0.3);
             color: #93c5fd;
+            box-shadow: none;
         }
 
-        /* specific top-section tagline */
         .hero-tagline {
-            margin-top: 35px; /* TĂNG từ 15px lên 35px để đẩy sát xuống card */
+            margin-top: 35px;
         }
 
-        /* NEW: Styles for the new "Bổ Sung Môn Học" section header */
         .supplementary-subjects-header {
             text-align: center;
-            margin-top: 60px; /* spacing above the new tagline */
-            margin-bottom: 30px; /* spacing below the new tagline, makes it close to its cards */
+            margin-top: 60px;
+            margin-bottom: 30px;
         }
 
         .supplementary-tagline {
-            font-size: 1.05rem; /* slightly smaller tagline for the sub-section */
+            font-size: 1.05rem;
+            /* Bạn có thể đổi màu riêng cho thẻ này nếu muốn */
+            background: #7c3aed; 
+            border-color: #6d28d9;
         }
 
         /* ================= SUBJECT CARDS ================= */
         .subjects-grid, .supplementary-subjects-grid {
             display: grid;
             gap: 30px;
-            margin-bottom: 30px; /* add spacing between grids */
+            margin-bottom: 30px;
         }
 
-        /* Existing 3-card grid */
         .subjects-grid {
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
         }
 
-        /* NEW: Grid for supplementary subjects (centered single card) */
         .supplementary-subjects-grid {
-            grid-template-columns: repeat(auto-fit, minmax(320px, 380px)); /* Fixed max-width for the single card */
-            justify-content: center; /* Centers the grid itself */
+            grid-template-columns: repeat(auto-fit, minmax(320px, 380px));
+            justify-content: center;
         }
 
         .subject-card {
@@ -245,7 +247,6 @@
         .subject-card.math::before { background: var(--math-color); }
         .subject-card.literature::before { background: var(--lit-color); }
         .subject-card.english::before { background: var(--eng-color); }
-        /* NEW: Natural Science KHTN color bar */
         .subject-card.khtn::before { background: var(--khtn-color); }
 
         .subject-card:hover {
@@ -291,10 +292,8 @@
         .math .btn-enter { background: var(--math-color); }
         .literature .btn-enter { background: var(--lit-color); }
         .english .btn-enter { background: var(--eng-color); }
-        /* NEW: Natural Science KHTN entry button */
         .khtn .btn-enter { background: var(--khtn-color); }
 
-        /* ================= FOOTER ================= */
         footer {
             text-align: center;
             padding: 40px;
@@ -345,27 +344,25 @@
         <section class="hero">
             <h1>Tài Liệu Học Tập Lớp 9</h1>
             <p>Tổng Hợp Tài Liệu Tại Nhiều Nguồn - Bí Kíp Đạt Điểm Cao 🎯</p>
-            <!-- Existing tagline, generic styling applied -->
             <div class="tagline hero-tagline">3 Môn Chính Lớp 9 + Ôn Thi Tuyển Sinh</div>
         </section>
 
-        <!-- Main Grid with original 3 subjects -->
         <main class="subjects-grid">
-            <a href="https://hwlonggg.github.io/Maths-Learning-Website/" class="subject-card math">
+            <a href="https://hwlongg.github.io/Maths-Learning-Website/" class="subject-card math">
                 <div class="icon-circle">📐</div>
                 <h2>Toán</h2>
                 <p>Tổng hợp kiến thức Đại số, Hình học và các dạng đề thi lớp 9 - thi thử tuyển sinh.</p>
                 <div class="btn-enter">Vào học ngay</div>
             </a>
 
-            <a href="https://hwlonggg.github.io/Literature-Learning-Webiste/" class="subject-card literature">
+            <a href="https://hwlongg.github.io/Literature-Learning-Webiste/" class="subject-card literature">
                 <div class="icon-circle">📖</div>
                 <h2>Ngữ Văn</h2>
                 <p>Bồi dưỡng phân tích tác phẩm văn học và các bài văn mẫu chọn lọc lớp 9.</p>
                 <div class="btn-enter">Vào học ngay</div>
             </a>
 
-            <a href="https://hwlonggg.github.io/English-Learning-Website/" class="subject-card english">
+            <a href="https://hwlongg.github.io/English-Learning-Website/" class="subject-card english">
                 <div class="icon-circle">🌍</div>
                 <h2>Tiếng Anh</h2>
                 <p>Hệ thống ngữ pháp, từ vựng theo chương trình và các đề thi thử từ nhiều tỉnh thành.</p>
@@ -373,17 +370,12 @@
             </a>
         </main>
 
-        <!-- NEW: "Bổ Sung Môn Học Lớp 9" Section Header -->
         <div class="supplementary-subjects-header">
-            <!-- Generic tagline style applied to new text -->
             <div class="tagline supplementary-tagline">Bổ Sung Môn Học Lớp 9</div>
         </div>
 
-        <!-- NEW: Grid containing the single Natural Science (KHTN) card -->
         <main class="supplementary-subjects-grid">
-            <!-- NEW Natural Science (KHTN) card -->
-            <a href="https://hwlonggg.github.io/Natural-Science-Learning-Website/" class="subject-card khtn">
-                <!-- Icon: 🧪 (Test tube) for science -->
+            <a href="https://hwlongg.github.io/Natural-Science-Learning-Website/" class="subject-card khtn">
                 <div class="icon-circle">🧪</div>
                 <h2>KHTN</h2>
                 <p>Tài liệu môn Khoa Học Tự Nhiên lớp 9 và các dạng đề ôn thi.</p>
@@ -393,7 +385,7 @@
     </div>
 
     <footer>
-        <p>Website tổng hợp tài liệu học tập dành cho học sinh lớp 9 ✍️ - Created by Nguyễn Hoàng Long 🔥</p>
+        <p>&copy; Website tổng hợp tài liệu học tập dành cho học sinh lớp 9 ✍️ - Created by HwLongg🔥</p>
     </footer>
 
     <script>
